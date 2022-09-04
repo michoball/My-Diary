@@ -37,7 +37,7 @@ export const HOME_DEFAULT_MEMO = [
     title: "please",
     updatedAt: "2022-08-15T22:20:00",
     color: "#2196f3",
-    memo: `<p>😁 old~~~~~~~🤗 memo gggg<br>gggg<br>ggggㅎㅎㅎlkfa;ljdf;as;f;<br></p>
+    memo: `<p>😁 old~~~~~~~🤗 memo gggg<br>gggggg<br>ggggㅎㅎㅎlkfa;ljdf;as;f;<br></p>
   <p>as;oeifja;s<br>ijf;lsak<del>asefasef</del>aa ~~~ memo gg</p>`,
     major: false,
   },
