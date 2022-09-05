@@ -28,6 +28,12 @@ function MemoEditSidebar({ onPreview, memoInfo, setMemoInfo }) {
   const navigate = useNavigate();
   const [hideColor, setHideColor] = useState(true);
   const saveMemoHandler = () => {
+    if (memoInfo.title.length === 0) {
+      console.log(memoInfo);
+      return alert("메모의 제목을 넣으세요");
+    } else if (memoInfo.memo.length === 0) {
+      return alert("메모에 내용을 넣으세요");
+    }
     try {
       dispatch(addMemo(memoLists, memoInfo));
       alert("메모가 저장되었습니다!");
@@ -52,7 +58,7 @@ function MemoEditSidebar({ onPreview, memoInfo, setMemoInfo }) {
       alert("error ocuured from RemoveMemo redux ", error);
     }
   };
-  const toggleColor = (e) => {
+  const toggleColor = () => {
     setHideColor(!hideColor);
   };
   return (
