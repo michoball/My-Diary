@@ -106,15 +106,23 @@ export const LinkContainer = styled.div`
   }
   @media screen and (max-width: 767px) {
     .demo {
-      display: none;
+      display: block;
+      font-size: 12px;
+      transform: translate(12px, 10px);
+
+      padding: 0;
+      :hover {
+        color: red;
+        background-color: unset;
+      }
     }
     a {
       display: none;
       &.start {
         display: block;
         button {
-          width: 100px;
-          font-size: 16px;
+          width: 80px;
+          font-size: 14px;
         }
       }
     }
@@ -145,6 +153,9 @@ export const SectionContainer = styled.section`
     background-color: white;
     @media screen and (max-width: 1023px) {
       flex-direction: column-reverse;
+    }
+    @media screen and (max-width: 767px) {
+      padding: 100px 0 150px;
     }
   }
   &.section-calendar {
@@ -362,9 +373,6 @@ export const ContentContainer = styled.div`
       font-weight: bold;
       font-size: 20px;
     }
-  }
-
-  @media screen and (max-width: 1023px) {
     &.calendar-content,
     &.memo-content {
       p {
@@ -373,6 +381,14 @@ export const ContentContainer = styled.div`
     }
   }
 
+  @media screen and (max-width: 767px) {
+    &.main-content {
+      h3 {
+        font-size: 60px;
+        text-align: center;
+      }
+    }
+  }
   &.label-content {
     padding: 20px;
     width: 100%;
