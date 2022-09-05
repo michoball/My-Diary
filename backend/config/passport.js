@@ -14,7 +14,7 @@ module.exports = function (passport) {
         callbackURL: "/api/users/google/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
-        console.log("email check: ", profile, "end~~~~~~~~~~~");
+        console.log("google user check: ", profile, "end~~~~~~~~~~~");
         const newUser = {
           provider: profile.provider,
           oAuthId: profile.id,
@@ -51,21 +51,13 @@ module.exports = function (passport) {
         callbackURL: "/api/users/kakao/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
-        console.log(
-          "kakao user check: ",
-          profile,
-          accessToken,
-          "end~~~~~~~~~~~"
-        );
+        console.log("kakao user check: ", profile, "end~~~~~~~~~~~");
         const newUser = {
           provider: profile.provider,
           oAuthId: profile.id,
           displayName: profile.displayName,
           profile_image: profile._json.properties.profile_image,
-          // email: profile.emails[0].value,
-          // accessToken: accessToken,
         };
-
         try {
           let user = await User.findOne({ oAuthId: profile.id });
           if (user) {

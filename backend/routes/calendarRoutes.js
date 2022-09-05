@@ -6,7 +6,7 @@ const {
   updatecalendar,
   deletecalendar,
 } = require("../controllers/calendarController");
-const { protect, ensureAuth } = require("../middleware/authMiddleware");
+const { protect } = require("../middleware/authMiddleware");
 
 router.route("/").get(protect, getCalendars).post(protect, createCalendars);
 
