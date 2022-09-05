@@ -11,6 +11,11 @@ const {
 
 const { protect, ensureAuth } = require("../middleware/authMiddleware");
 
+const redirectURL = {
+  success: "http://localhost:3000/oauth/success",
+  failure: "http://localhost:3000",
+};
+
 // google Oauth login
 router.get(
   "/google",
@@ -21,8 +26,8 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:3000",
-    successRedirect: "http://localhost:3000/oauth/success",
+    failureRedirect: redirectURL.failure,
+    successRedirect: redirectURL.success,
   }),
   (req, res) => {
     console.log(
@@ -41,8 +46,8 @@ router.get("/kakao", passport.authenticate("kakao"));
 router.get(
   "/kakao/callback",
   passport.authenticate("kakao", {
-    failureRedirect: "http://localhost:3000",
-    successRedirect: "http://localhost:3000/oauth/success",
+    failureRedirect: redirectURL.failure,
+    successRedirect: redirectURL.success,
   }),
   (req, res) => {
     console.log(
@@ -54,19 +59,15 @@ router.get(
 );
 // naver Oauth login
 
-router.get(
-  "/naver",
-  passport.authenticate("naver", {
-    failureRedirect: "http://localhost:3000",
-  })
-);
+router.get("/naver", passport.authenticate("naver"));
 
 // naver Oauth login callback
 // creates an account if no account of the new user
 router.get(
   "/naver/callback",
   passport.authenticate("naver", {
-    failureRedirect: "http://localhost:3000",
+    failureRedirect: redirectURL.failure,
+    successRedirect: redirectURL.success,
   }),
   (req, res) => {
     console.log(
@@ -74,7 +75,6 @@ router.get(
       req.user,
       "user~~~~~~~~~~~~~~~~~~~~~~~naver ~"
     );
-    res.redirect("http://localhost:3000/oauth/success");
   }
 );
 

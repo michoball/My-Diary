@@ -88,14 +88,6 @@ const oauthLogin = asyncHandler(async (req, res) => {
 });
 
 const logoutUser = asyncHandler(async (req, res) => {
-  // 카카오 로그아웃 -> access 토큰이용
-  // await fetch("https://kapi.kakao.com/v1/user/logout", {
-  //   method: "POST",
-  //   headers: {
-  //     Authorization: `Bearer ${req.body.token}`,
-  //   },
-  // }).catch((err) => console.error(err));
-
   if (req.session) {
     console.log("로그아웃");
 
