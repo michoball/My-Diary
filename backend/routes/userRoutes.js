@@ -12,7 +12,7 @@ const {
 const { protect, ensureAuth } = require("../middleware/authMiddleware");
 
 const redirectURL = {
-  success: "https://my-diary-myunghun.herokuapp.com/api/users/oauth/success",
+  success: "https://my-diary-myunghun.herokuapp.com/oauth/success",
   failure: "https://my-diary-myunghun.herokuapp.com",
 };
 
