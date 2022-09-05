@@ -4,6 +4,12 @@ const NaverStrategy = require("passport-naver").Strategy;
 const mongoose = require("mongoose");
 const User = require("../models/userModel");
 
+const callback = {
+  GOOGLE_CALLBACK: "/api/users/google/callback",
+  KAKAO_CALLBACK: "/api/users/kakao/callback",
+  NAVER_CALLBACK: "/api/users/naver/callback",
+};
+
 module.exports = function (passport) {
   // GOOGLE 소셜로그인
   passport.use(
@@ -11,7 +17,7 @@ module.exports = function (passport) {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "/api/users/google/callback",
+        callbackURL: callback.GOOGLE_CALLBACK,
       },
       async (accessToken, refreshToken, profile, done) => {
         console.log("google user check: ", profile, "end~~~~~~~~~~~");
@@ -48,7 +54,7 @@ module.exports = function (passport) {
       {
         clientID: process.env.KAKAO_CLIENT_ID,
         clientSecret: process.env.KAKAO_CLIENT_SECRET,
-        callbackURL: "/api/users/kakao/callback",
+        callbackURL: callback.KAKAO_CALLBACK,
       },
       async (accessToken, refreshToken, profile, done) => {
         console.log("kakao user check: ", profile, "end~~~~~~~~~~~");
@@ -82,7 +88,7 @@ module.exports = function (passport) {
       {
         clientID: process.env.NAVER_CLIENT_ID,
         clientSecret: process.env.NAVER_CLIENT_SECRET,
-        callbackURL: "/api/users/naver/callback",
+        callbackURL: callback.NAVER_CALLBACK,
       },
       async (accessToken, refreshToken, profile, done) => {
         console.log("naver user check: ", profile, "end~~~~~~~~~~~");
