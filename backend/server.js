@@ -27,7 +27,6 @@ app.use(
     secret: "mydiary kang",
     resave: false,
     saveUninitialized: false,
-    // store: MongoStore({ mongooseConnection: mongoose.Connection }),
     // store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
   })
 );
@@ -37,13 +36,6 @@ app.use(passport.session());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-  })
-);
 
 //Routes
 app.use("/api/users", require("./routes/userRoutes"));
@@ -63,6 +55,12 @@ if (process.env.NODE_ENV === "production") {
   app.get("/", (req, res) => {
     res.status(200).json({ message: "Welcome to the diary app" });
   });
+  app.use(
+    cors({
+      origin: "http://localhost:3000",
+      credentials: true,
+    })
+  );
 }
 
 app.use(errorHandler);

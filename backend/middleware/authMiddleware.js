@@ -38,7 +38,7 @@ const protect = asyncHandler(async (req, res, next) => {
 // 본 프로젝트에서는 로그인 시 세션을 만드는 OAuth 로그인에서  oauth/success에서만 사용한다.
 // passport 라이브러리에서 session을 사용해서 넣음
 const ensureAuth = (req, res, next) => {
-  console.log(" ensureAuth request User~~~", req.user);
+  console.log(" ensureAuth request User~~~", req.user, req.isAuthenticated());
   if (req.user) {
     return next();
   } else {
