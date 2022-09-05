@@ -47,8 +47,8 @@ const calendarSwiperImg = [
 const memoSwiperImg = [memoPage, memoEditPage, memoPreview, memoEditing];
 
 const demoModeUser = {
-  email: process.env.REACT_APP_DEMO_USER_ID,
-  password: process.env.REACT_APP_DEMO_USER_PASSWORD,
+  email: "testEmail@gmail.com",
+  password: "asdfasdf",
 };
 
 function LandingPage() {

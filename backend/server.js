@@ -1,8 +1,13 @@
+const PORT = process.env.PORT || 5000;
+
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
+
+const path = require("path");
+
 const { errorHandler } = require("./middleware/errorMiddleware");
-const PORT = process.env.PORT || 5000;
+
 const colors = require("colors");
 const passport = require("passport");
 const session = require("express-session");
@@ -33,31 +38,32 @@ app.use(passport.session());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.status(200).json({ message: "Welcome to the diary app" });
-});
 app.use(
   cors({
     origin: "http://localhost:3000",
     credentials: true,
   })
 );
-// app.all(
-//   "/api/users",
-//   // cors({ origin: "http://localhost:3000", credentials: true }),
-//   function (req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//     // res.send(req.body);
-//     next();
-//   }
-// );
 
 //Routes
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/memos", require("./routes/memoRoutes"));
 app.use("/api/labels", require("./routes/labelRoutes"));
 app.use("/api/calendars", require("./routes/calendarRoutes"));
+
+//Serve Frontend
+if (process.env.NODE_ENV === "production") {
+  // Set build folder as static
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+  app.get("*", (_, res) =>
+    res.sendFile(path.join(__dirname, "../frontend/build/index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.status(200).json({ message: "Welcome to the diary app" });
+  });
+}
 
 app.use(errorHandler);
 
