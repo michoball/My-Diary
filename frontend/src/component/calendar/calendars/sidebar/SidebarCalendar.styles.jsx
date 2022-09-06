@@ -7,16 +7,16 @@ export const SidebarCalendarContainer = styled.div`
   height: 100%;
 
   ${calendarCss} {
+    td,
+    th {
+      border: none;
+    }
     .fc-theme-standard .fc-scrollgrid {
       border: none;
     }
     font-family: "Roboto", sans-serif;
     font-size: 8px;
 
-    td,
-    th {
-      border: none;
-    }
     .fc-toolbar-title {
       font-size: 16px !important;
       margin-right: 20px;
