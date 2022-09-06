@@ -20,7 +20,7 @@ export const HomeContainer = styled.div`
     padding: 0 30px 30px;
     gap: 30px;
     h1 {
-      font-size: 30px;
+      font-size: 25px;
     }
 
     @media screen and (max-width: 1023px) {
@@ -31,7 +31,7 @@ export const HomeContainer = styled.div`
     }
     @media screen and (max-width: 767px) {
       h1 {
-        font-size: 25px;
+        font-size: 20px;
       }
     }
   }

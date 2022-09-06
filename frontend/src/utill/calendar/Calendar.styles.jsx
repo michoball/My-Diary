@@ -125,10 +125,10 @@ export const calendarCss = css`
       }
       .fc-daygrid-day-bottom {
         text-align: center;
-        .fc-daygrid-more-link {
-          font-size: 24px;
-          color: orange;
-        }
+      }
+      .fc-daygrid-more-link {
+        font-size: 24px;
+        color: orange;
       }
     }
     .fc-timegrid {

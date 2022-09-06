@@ -43,4 +43,14 @@ const TogglerContainer = styled.div`
   span {
     color: ${(props) => props.theme.text.memoTitle};
   }
+
+  @media screen and (max-width: 767px) {
+    width: 120px;
+    height: 40px;
+    right: 20px;
+    top: 30px;
+    span {
+      font-size: 12px;
+    }
+  }
 `;

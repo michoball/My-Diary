@@ -191,13 +191,15 @@ export const SectionContainer = styled.section`
     background-color: white;
 
     .memoInfo-wrapper {
-      max-width: 1200px;
+      max-width: 1300px;
+      min-width: 1000px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       @media screen and (max-width: 1023px) {
-        min-width: 800px;
+        min-width: 900px;
+        padding: 50px 10px;
       }
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 900px) {
         display: flex;
         flex-direction: column;
         min-width: 300px;
@@ -239,9 +241,8 @@ export const MemoDisplay = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* border: 1px solid rgba(98, 57, 51, 0.3); */
   padding: 10px;
-  min-width: 450px;
+  min-width: 500px;
   height: 250px;
   margin: 30px 10px;
 
@@ -251,11 +252,13 @@ export const MemoDisplay = styled.div`
 
   @media screen and (max-width: 1023px) {
     height: 200px;
-    margin-bottom: 20px;
+    margin: 0;
+    min-width: 400px;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 900px) {
     height: 300px;
     padding: 30px 10px;
+    min-width: 450px;
     margin: 0;
     border-bottom: 1px solid rgba(98, 57, 51, 0.3);
     :last-child {
@@ -311,36 +314,49 @@ export const ImgContainer = styled.div`
   }
 
   &.memoInfo-display {
-    min-width: 250px;
+    width: 60%;
+    min-width: 300px;
 
     padding: 10px;
     position: relative;
     display: flex;
     align-items: center;
-    width: 60%;
+
     height: 100%;
     box-shadow: unset;
 
     img {
       min-width: 200px;
-
       border-radius: 10px;
     }
 
     .memo-sub {
-      min-width: 200px;
       border: 2px solid rgba(98, 57, 51, 0.3);
       position: absolute;
       top: -10px;
       left: -20px;
       width: 250px;
       height: 60px;
+      @media screen and (max-width: 1023px) {
+        top: -5px;
+        left: -10px;
+        width: 120px;
+        height: 50px;
+      }
+      @media screen and (max-width: 900px) {
+        top: -10px;
+        left: -20px;
+        width: 250px;
+        height: 60px;
+      }
     }
     @media screen and (max-width: 1023px) {
-      width: 90%;
+      width: 60%;
+      min-width: 250px;
     }
     @media screen and (max-width: 767px) {
-      width: 60%;
+      width: 55%;
+      height: 250px;
     }
   }
 `;
@@ -420,15 +436,21 @@ export const ContentContainer = styled.div`
     }
     @media screen and (max-width: 1023px) {
       text-align: center;
+      min-width: 100;
       p {
         font-size: 14px;
       }
     }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 900px) {
       text-align: center;
       width: 40%;
       p {
         font-size: 16px;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      p {
+        font-size: 14px;
       }
     }
   }
