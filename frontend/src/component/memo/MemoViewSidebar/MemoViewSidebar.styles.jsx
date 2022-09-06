@@ -10,7 +10,6 @@ export const SideBarWrapper = styled.div`
   height: 100%;
 
   @media screen and (max-width: 767px) {
-    font-size: 14px;
     padding-left: 10px;
     margin-bottom: 10px;
   }
@@ -26,6 +25,10 @@ export const SideContentWapper = styled.div`
 
   padding: 10px;
   border-radius: 10px;
+
+  @media screen and (max-width: 1023px) {
+    padding: 10px 5px;
+  }
   @media screen and (max-width: 767px) {
     flex-direction: column-reverse;
   }
@@ -59,8 +62,11 @@ export const NavLink = styled(Link)`
   svg {
     margin-right: 10px;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1023px) {
     font-size: 18px;
+    padding: 10px 20px;
+  }
+  @media screen and (max-width: 767px) {
     padding: 10px 20px;
     align-items: unset;
     height: 40px;
@@ -93,9 +99,22 @@ export const SearchBarContainer = styled.div`
       font-size: 18px;
     }
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1023px) {
+    padding: 10px;
     ${FormInputContainer} {
       width: 100%;
+      label {
+        font-size: 14px;
+      }
+    }
+  }
+  @media screen and (max-width: 767px) {
+    padding: 20px;
+    ${FormInputContainer} {
+      width: 100%;
+      label {
+        font-size: 18px;
+      }
     }
   }
 `;
@@ -118,6 +137,16 @@ export const SearchButton = styled.button`
     font-size: 18px;
     cursor: pointer;
   }
+  @media screen and (max-width: 1023px) {
+    svg {
+      font-size: 16px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    svg {
+      font-size: 18px;
+    }
+  }
 `;
 
 export const MajorMemoContainer = styled.div`
@@ -134,11 +163,11 @@ export const MajorMemoContainer = styled.div`
   svg {
     margin-right: 10px;
   }
-  @media screen and (max-width: 767px) {
-    padding: 10px 20px;
+  @media screen and (max-width: 1023px) {
     label {
       font-size: 18px;
     }
+    padding: 10px 20px;
   }
 `;
 
@@ -201,6 +230,13 @@ export const ColorSection = styled.div`
   ${CircleColorPicker} {
     background-color: ${(props) => props.theme.bg.main};
   }
+  @media screen and (max-width: 1023px) {
+    margin-bottom: 10px;
+    label {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  }
   @media screen and (max-width: 767px) {
     flex-direction: row;
     align-items: center;
@@ -245,6 +281,10 @@ export const SideBtn = styled.button`
   }
   svg {
     margin-right: 10px;
+  }
+  @media screen and (max-width: 1023px) {
+    font-size: 18px;
+    padding: 10px 20px;
   }
   @media screen and (max-width: 767px) {
     font-size: 18px;

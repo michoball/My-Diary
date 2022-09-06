@@ -33,6 +33,7 @@ export const UserInfoContainer = styled.div`
   height: 80%;
   p {
     margin-bottom: 5px;
+    color: ${(props) => props.theme.text.content};
   }
 `;
 export const UserAvatarContainer = styled.div`

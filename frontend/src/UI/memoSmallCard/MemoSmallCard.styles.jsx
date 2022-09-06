@@ -7,6 +7,9 @@ export const MemoContainer = styled.div`
   font-size: 14px;
 
   color: ${(props) => props.theme.text.underline};
+  @media screen and (max-width: 1023px) {
+    font-size: 12px;
+  }
 `;
 
 export const MemoCardHeader = styled.header`
@@ -28,5 +31,11 @@ export const MemoCardHeader = styled.header`
     right: 10%;
     top: 7%;
     fill: ${({ major }) => (major ? "#FF8A05" : "transparent")};
+  }
+  @media screen and (max-width: 1023px) {
+    font-size: 16px;
+    span {
+      font-size: 16px;
+    }
   }
 `;

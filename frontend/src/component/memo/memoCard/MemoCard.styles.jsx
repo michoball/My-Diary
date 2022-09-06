@@ -36,6 +36,10 @@ export const MemoCardContainer = styled.div`
     height: 100%;
     background-color: ${({ bgcolor }) => `${bgcolor}`};
   }
+  @media screen and (max-width: 1023px) {
+    min-width: 220px;
+    height: 200px;
+  }
   @media screen and (max-width: 767px) {
     width: 100%;
     min-width: 200px;

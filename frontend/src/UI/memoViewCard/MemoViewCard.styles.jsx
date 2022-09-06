@@ -70,7 +70,7 @@ export const MemoHeader = styled.header`
     fill: #ff8a05;
   }
   @media screen and (max-width: 767px) {
-    width: 600px;
+    width: 480px;
     h1 {
       font-size: 25px;
       width: 300px;

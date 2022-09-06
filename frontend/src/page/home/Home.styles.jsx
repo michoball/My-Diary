@@ -44,9 +44,9 @@ export const HomeNavContainer = styled.div`
 
   width: 100%;
   height: 90px;
-
+  padding: 0 30px;
   svg {
-    margin-left: 30px;
+    /* margin-left: 30px; */
     width: 300px;
     fill: #f2727d;
   }
@@ -66,7 +66,7 @@ export const HomeCalendar = styled.div`
 
   background-color: ${(props) => props.theme.bg.container};
   @media screen and (max-width: 1023px) {
-    width: 90%;
+    width: 100%;
     height: 500px;
   }
 `;
@@ -114,7 +114,7 @@ export const RightSideContainer = styled.div`
 
   @media screen and (max-width: 1023px) {
     flex-direction: column-reverse;
-    width: 90%;
+    width: 100%;
     gap: 30px;
   }
 `;

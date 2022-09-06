@@ -16,6 +16,7 @@ export const SideBarViewContainer = styled.div`
   @media screen and (max-width: 1023px) {
     height: unset;
     max-width: unset;
+    min-width: 200px;
   }
   @media screen and (max-width: 767px) {
     padding: 10px 10px 20px;

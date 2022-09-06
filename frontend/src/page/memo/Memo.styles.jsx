@@ -7,7 +7,8 @@ export const MemoContainer = styled.div`
   height: calc(100vh - 110px);
 
   @media screen and (max-width: 1023px) {
-    height: unset;
+    height: 100vh;
+    padding-bottom: 20px;
   }
   @media screen and (max-width: 767px) {
     flex-direction: column;
