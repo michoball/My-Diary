@@ -75,7 +75,7 @@ const SignInForm = () => {
     let timer = null;
 
     const newWindow = window.open(
-      `https://my-diary-myunghun.herokuapp.com/api/users/${service}`,
+      `https://localhost:5000/api/users/${service}`,
       "_blank",
       "width=500, height=600"
     );
