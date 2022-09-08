@@ -59,12 +59,6 @@ if (process.env.NODE_ENV === "production") {
   app.get("/", (req, res) => {
     res.status(200).json({ message: "Welcome to the diary app" });
   });
-  // app.use(
-  //   cors({
-  //     origin: "http://localhost:3000",
-  //     credentials: true,
-  //   })
-  // );
 }
 
 app.use(errorHandler);
