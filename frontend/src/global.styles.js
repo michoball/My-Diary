@@ -22,12 +22,12 @@ export const GlobalStyle = createGlobalStyle`
 }
 body {
   font-family: 'SBAggroL','SBAggroB',sans-serif;
-  transition:  all 0.3s ease-in;
+  transition:  background-color 0.3s ease-in;
   background-color: ${(props) => props.theme.bg.main};
   color: ${(props) => props.theme.text.content};
 }
 div{
-  transition:  all 0.3s ease-in;
+  transition:  background-color 0.3s ease-in, width 0.3s ease-in, height 0.3s ease-in;
 }
 h1, h2{
   font-size: 25px;
@@ -41,7 +41,6 @@ button{
 }
 a{
   text-decoration: none;
-  transition:  all 0.3s ease-in;
   color: ${(props) => props.theme.text.content};
 }
    scrollbar-width: thin;
