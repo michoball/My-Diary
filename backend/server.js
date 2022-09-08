@@ -43,6 +43,10 @@ app.use("/api/memos", require("./routes/memoRoutes"));
 app.use("/api/labels", require("./routes/labelRoutes"));
 app.use("/api/calendars", require("./routes/calendarRoutes"));
 
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Welcome to the diary app" });
+});
+
 //Serve Frontend
 if (process.env.NODE_ENV === "production") {
   // Set build folder as static
@@ -55,12 +59,12 @@ if (process.env.NODE_ENV === "production") {
   app.get("/", (req, res) => {
     res.status(200).json({ message: "Welcome to the diary app" });
   });
-  app.use(
-    cors({
-      origin: "http://localhost:3000",
-      credentials: true,
-    })
-  );
+  // app.use(
+  //   cors({
+  //     origin: "http://localhost:3000",
+  //     credentials: true,
+  //   })
+  // );
 }
 
 app.use(errorHandler);

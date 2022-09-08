@@ -75,7 +75,7 @@ const SignInForm = () => {
     let timer = null;
 
     const newWindow = window.open(
-      `https://localhost:5000/api/users/${service}`,
+      `http://localhost:5000/api/users/${service}`,
       "_blank",
       "width=500, height=600"
     );
