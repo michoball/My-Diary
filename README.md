@@ -61,9 +61,9 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
    
    
    <div align="center">
-  <img src="https://user-images.githubusercontent.com/79836148/189155131-2bc82c3a-e4f3-4611-835a-bbc58b6674c1.jpg" width="300px" height="200px" title="home" alt="home"></img> 
-   <img src="https://user-images.githubusercontent.com/79836148/189155408-11c7f105-7c75-414e-bc6a-d7ef22ab707d.jpg" width="300px" height="200px" title="loginHome" alt="loginHome"></img> 
-  <img src="https://user-images.githubusercontent.com/79836148/189155468-ebb486d3-4f3a-4888-a19d-271918a26f95.jpg" width="300px" height="200px" title="darkhome" alt="darkhome"></img> 
+  <img src="https://user-images.githubusercontent.com/79836148/189155131-2bc82c3a-e4f3-4611-835a-bbc58b6674c1.jpg" width="250px" height="150px" title="home" alt="home"></img> 
+   <img src="https://user-images.githubusercontent.com/79836148/189155408-11c7f105-7c75-414e-bc6a-d7ef22ab707d.jpg" width="250px" height="150px" title="loginHome" alt="loginHome"></img> 
+  <img src="https://user-images.githubusercontent.com/79836148/189155468-ebb486d3-4f3a-4888-a19d-271918a26f95.jpg" width="250px" height="150px" title="darkhome" alt="darkhome"></img> 
   <br/>
  
 </div>
@@ -77,7 +77,7 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
    
    
    <div align="center">
-  <img src="https://user-images.githubusercontent.com/79836148/189155891-948e0149-93cb-4a5a-8fa7-8aa6803eca5c.jpg" width="300px" height="200px" title="login" alt="login"></img> <img src="https://user-images.githubusercontent.com/79836148/189156053-43e8e02a-9bb2-4b6e-a35e-79156c3f3ce8.jpg" width="300px" height="200px" title="signUp" alt="signUp"></img> 
+  <img src="https://user-images.githubusercontent.com/79836148/189155891-948e0149-93cb-4a5a-8fa7-8aa6803eca5c.jpg" width="250px" height="150px" title="login" alt="login"></img> <img src="https://user-images.githubusercontent.com/79836148/189156053-43e8e02a-9bb2-4b6e-a35e-79156c3f3ce8.jpg" width="250px" height="150px" title="signUp" alt="signUp"></img> 
   <br/>
 
 </div>
@@ -108,7 +108,7 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
    
    
    <div align="center">
-  <img src="https://user-images.githubusercontent.com/79836148/189158713-62da974e-dc6f-49fa-b7e2-715ff9e78b61.jpg" width="300px" height="200px" title="calendarDaliy" alt="calendarDaliy"></img> <img src="https://user-images.githubusercontent.com/79836148/189158798-a924775f-93fa-409b-baa6-20a33a7db804.jpg" width="300px" height="200px" title="calendarRecurr" alt="calendarRecurr"></img>  <img src="https://user-images.githubusercontent.com/79836148/189159259-8c60dc84-1a77-4925-9c22-2ee742e777ca.jpg" width="300px" height="200px" title="eventEditor" alt="eventEditor"></img> 
+  <img src="https://user-images.githubusercontent.com/79836148/189158713-62da974e-dc6f-49fa-b7e2-715ff9e78b61.jpg" width="300px" height="200px"  title="calendarDaliy" alt="calendarDaliy"></img> <img src="https://user-images.githubusercontent.com/79836148/189158798-a924775f-93fa-409b-baa6-20a33a7db804.jpg" width="300px" height="200px"  title="calendarRecurr" alt="calendarRecurr"></img>  <img src="https://user-images.githubusercontent.com/79836148/189159259-8c60dc84-1a77-4925-9c22-2ee742e777ca.jpg" width="300px" height="200px"  title="eventEditor" alt="eventEditor"></img> 
   <br/>
   
  일일과 정기 event 생성창의 모습과 편집창의 모습
@@ -127,7 +127,7 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
         
         
   <div align="center">
-  <img src="https://user-images.githubusercontent.com/79836148/189160638-5a043d45-969a-491d-8f8b-567c57304db7.jpg" width="300px" height="200px" title="labelAdd" alt="labelAdd"></img> <img src="https://user-images.githubusercontent.com/79836148/189160714-aaeb3912-35b6-48b1-b62e-8ca7b0d25aad.jpg" width="300px" height="200px" title="labelView" alt="labelView"></img>  
+  <img src="https://user-images.githubusercontent.com/79836148/189160638-5a043d45-969a-491d-8f8b-567c57304db7.jpg" width="300px" height="200px"  title="labelAdd" alt="labelAdd"></img> <img src="https://user-images.githubusercontent.com/79836148/189160714-aaeb3912-35b6-48b1-b62e-8ca7b0d25aad.jpg" width="300px" height="200px"  title="labelView" alt="labelView"></img>  
   <br/>
   label 생성창과 label목록의 모습
  
