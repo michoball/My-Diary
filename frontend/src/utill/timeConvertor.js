@@ -9,10 +9,12 @@ export const TimeConvertor = (time) => {
 };
 
 export const EndDayConvertor = (end) => {
+  const newEndValue = (new Date(end).getDate() - 1).toString();
+
   const endDayConvert = end
     ? end.slice(0, 7) +
       "-" +
-      (new Date(end).getDate() - 1).toString() +
+      (Number(newEndValue) < 10 ? `0${newEndValue}` : newEndValue) +
       "T24:00"
     : null;
   return endDayConvert;
