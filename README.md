@@ -169,12 +169,80 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
  새 메모와 편집중인 메모 창 및 중요표시 모습
  
    </div>
+  <br/>
+  <br/>
+ 
+ 
+ # 코드 이슈
+ 
+ ## Front-end
 
+   * Redux-toolkit의 비동기 처리 순서
   
+      >  Navigation Bar와 Home Page에서 유저 로그아웃을 할 때 로그아웃 후에 유저의 data 정보를 reset하도록 하였다.  <br/>
+      >  이때 Action Diapatch를 하나의 function안에서 여러개(logout, calendar, label, memo) 진행하게 되면서
+      >  비동기 처리의 순서가 없어서 로그아웃 후에도 유저의 data가 남아있는 경우가 발생했다.  <br/>
+      >  이전 프로젝트 [video-chat-cpp](https://video-chat-app-neon.vercel.app/)에서는 redux-saga로 진행해서 
+      >  Action의 순서를 조정할 수 있었는데 toolkit에서는 createAsyncThunk 만으로는 할 수 없었다.  <br/>
+      >  문제는 고심했던 것과는 의외로 간단히 Action을 then체인으로 묶어서 해결할 수 있었다.  <br/>
   
+  <br/>
   
+  ```js
+   const logoutHandler = () => {
+    dispatch(logout())
+      .then(() => {
+        dispatch(userReset());
+        dispatch(memoReset());
+        dispatch(calendarReset());
+        dispatch(labelReset());
+      })
+      .then(() => navigate("/home"));
+  };
+  ```
+  <br/>
   
+   * 요일 선택기 DayPicker 와 label 선택기의 Event & Label 내용 받기
   
+      >  요일 선택기 DayPicker는 정기 일정 생성기에서 반복하고 싶은 요일을 정할 때 쓰이고<br/>
+      >  label 선택기는 Event 생성기과 편집기 그리고 label을 클릭할 때 작용한다.<br/>
+      >  위의 기능들은 label 또는 event를 클릭하면 해당 event에 들어가있는 label이나 요일의 값을 event 편집기에 넣어주는 일을 한다.<br/>
+      >  label을 클릭할 때인지 event를 클릭할 때인지 또 event가 label을 가지고 있는지에 따라 값을 구분할수 있어야했고<br/>
+      >  이를 위해 useEffect를 두개를 사용해서 값을 인식하고 넣을 수 있도록 했다.<br/>
+  
+  <br/>
+  
+  ```js
+  //DayPicker에서 event , label에 따른 요일값
+   useEffect(() => {
+   //label을 클릭했을 때
+    if (!selectEvent && selectedLabel && selectedLabel.daysOfWeek) {
+       //label에 있는 요일 값과 맞는 요일 input에 check표시하기
+      for (let i = 0; i < selectedLabel.daysOfWeek.length; i++) {
+        if (selectedLabel.daysOfWeek[i] === String(week.id)) {
+          dayCheckRef.current.checked = true;
+          setChecked(true);
+          onCheckBoxChange(dayCheckRef.current);
+        }
+      }
+    }
+  }, [selectedLabel, week, onCheckBoxChange, selectEvent]);
+  
+   //event을 클릭했을 때
+  useEffect(() => {
+    if (selectEvent && selectEvent.daysOfWeek) {
+    //event에 있는 요일 값과 맞는 요일 input에 check표시하기
+      for (let i = 0; i < selectEvent.daysOfWeek.length; i++) {
+        if (selectEvent.daysOfWeek[i] === String(week.id)) {
+          dayCheckRef.current.checked = true;
+          setChecked(true);
+          onCheckBoxChange(dayCheckRef.current);
+        }
+      }
+    }
+  }, [selectEvent, week, onCheckBoxChange]);
+
+  ```
   
   
   
