@@ -173,7 +173,7 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
   <br/>
  
  
- # 코드 이슈
+ # 코드 이슈 (트러블, 특이사항)
  
  ## Front-end
 
@@ -200,7 +200,48 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
       .then(() => navigate("/home"));
   };
   ```
+  
   <br/>
+  
+   * TimeConvertor
+  
+      >  Fullcalendar는 들어오는 event의 date를 다루는 방식이 특이하다. <br/>
+      >  event가 끝나는 시간과 날짜가 allDay(종일)event일 경우 끝나는 날짜가 다음날 00시로 이동한다.<br/>
+      >  이 값을 조정하지 않고 그대로 서버에 저장하고 불러오기를 하면 event의 날짜가 변하게된다.<br/>
+      >  또한 mongoDB로 보내진 event의 date를 Date 값으로 저장하니 UTC와 local 시간차가 반영이 되어 이또한 event 값을 변화시켰다.<br/>
+      >  DB에 저장될 때는 Date값이 아닌 String값으로 저장을 하는 방식으로 해결하였고, Event end값은 TimeConvertor를 만들어 해결했다.<br/>
+  
+  
+  <br/>
+  
+  ```js
+  //날짜값만 가져오는 함수
+ export const DayConvertor = (day) => {
+  const dayConvert = day.split("T")[0];
+  return dayConvert;
+};
+
+  //시간값만 가져오는 함수
+export const TimeConvertor = (time) => {
+  const timeConvert = time.split("T")[1].slice(0, 5);
+  return timeConvert;
+};
+
+  //End Time값 변환함수
+export const EndDayConvertor = (end) => {
+  const newEndValue = (new Date(end).getDate() - 1).toString();
+
+  const endDayConvert = end
+    ? end.slice(0, 7) +
+      "-" +
+      (Number(newEndValue) < 10 ? `0${newEndValue}` : newEndValue) +
+      "T24:00"
+    : null;
+  return endDayConvert;
+};
+  ```
+  
+<br/>
   
    * 요일 선택기 DayPicker 와 label 선택기의 Event & Label 내용 받기
   
