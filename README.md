@@ -47,7 +47,11 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
 
 <br/>
 
+
+
 # 웹 기능
+
+
 
 ## Home
 
@@ -78,11 +82,11 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
   
    ## Calendar
   
-       Calendar는 월별 보기와 주별 보기가 지원되고, 화살표로 월과 주단위 이동이 가능하다.
-       생성 버튼으로 event를 생성하고, 휴일버튼으로 휴무일을 지정할 수 있다.
-       생성된 event는 main view에서 drag & drop으로 수정가능하고, 클릭해서 상세하게 수정도 가능하다.
-       Label 창에 자신만의 일정을 분류하는 라벨을 만들어 쉽고 빠르게 event를 생성할 수 있다.
-       Side calendar는 event 표시기능만 지원한다.
+ - Calendar는 월별 보기와 주별 보기가 지원되고, 화살표로 월과 주단위 이동이 가능하다.
+ - 생성 버튼으로 event를 생성하고, 휴일버튼으로 휴무일을 지정할 수 있다.
+ - 생성된 event는 main view에서 drag & drop으로 수정가능하고, 클릭해서 상세하게 수정도 가능하다.
+ - Label 창에 자신만의 일정을 분류하는 라벨을 만들어 쉽고 빠르게 event를 생성할 수 있다.
+ - Side calendar는 event 표시기능만 지원한다.
    
    
    <div align="center">
@@ -110,11 +114,11 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
 
 ## Label
 
-        오른쪽 + 표시로 Label을 생성할 수 있다.
-        생성된 label은 label 목록에서 바로 불 수 있다.
-        목록에서 label을 클릭하면 label에서 설정한 내용이 미리 들어간 event 생성창이 나온다
-        label을 클릭하지 않아도 생성된 label은 event 생성창에서 지정할 수 있다.
-        label 또한 편집모드에서는 정기와 일일을 오가는 label은 선택할 수 없다.
+- 오른쪽 + 표시로 Label을 생성할 수 있다.
+- 생성된 label은 label 목록에서 바로 불 수 있다.
+- 목록에서 label을 클릭하면 label에서 설정한 내용이 미리 들어간 event 생성창이 나온다
+- label을 클릭하지 않아도 생성된 label은 event 생성창에서 지정할 수 있다.
+- label 또한 편집모드에서는 정기와 일일을 오가는 label은 선택할 수 없다.
 
 
 
@@ -127,9 +131,50 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
 
 ## Memo
 
-        메모 view에서는 전체 메모를 볼 수 있고, 메모의 제목을 검색해서 찾을 수 있다.
-        제목 검색 외에도 메모에 지정한 색깔별로 메모를 모아서 볼 수도 있다.
-        메모를 클릭하면 해당 메모의 전체내용을 볼 수 있는 창이 나오고 편집과 삭제를 할 수 있다.
-        중요 메모표시( 별표 )를 해둔 메모는 따로 side bar 에서 모아 볼 수 있다. 
+- 메모 view에서는 전체 메모를 볼 수 있고, 메모의 제목을 검색해서 찾을 수 있다.
+- 제목 검색 외에도 메모에 지정한 색깔별로 메모를 모아서 볼 수도 있다.
+- 메모를 클릭하면 해당 메모의 전체내용을 볼 수 있는 창이 나오고 편집과 삭제를 할 수 있다.
+- 중요 메모표시( 별표 )를 해둔 메모는 따로 side bar 에서 모아 볼 수 있다. 
         
+        
+  <div align="center">
 
+  <img src="https://user-images.githubusercontent.com/79836148/189370047-95955bef-d236-4265-898d-2b399e6787ac.jpg" width="300px" height="200px"  title="memoPage" alt="memoPage"></img> <img src="https://user-images.githubusercontent.com/79836148/189370179-b07fe680-8dc7-48e8-829d-0fd7e031ef9b.jpg" width="300px" height="200px"  title="memoPreview" alt="memoPreview"></img>  
+  <br/>
+  매모 창과 메모 클릭 시 보이는 창
+  </div>
+  
+ <div align="center">
+  <img src="https://user-images.githubusercontent.com/79836148/189370650-7ce57cd3-864c-414a-8b36-007603bdb387.jpg" width="300px" height="200px"  title="memoSearch" alt="memoSearch"></img> <img src="https://user-images.githubusercontent.com/79836148/189370770-728a05e6-6b1c-4fa0-b4f8-f053f7d8dbaa.jpg" width="300px" height="200px"  title="memoColor" alt="memoColor"></img>  
+  <br/>
+  메모 검색하는 모습과 색깔 별로 보는 
+ 
+</div>
+
+     
+   * Memo Create & Edit
+    
+      - Memo를 생성하고 편집하는 페이지는 똑같다.
+      - Memo창 side bar에서 New Memo로 새 메모를 만들 수 있고, 메모를 클릭하면 나오는 Edit으로 편집창으로 갈 수 있다.
+      - Memo Creat & Edit 창에서는 메모의 제목, 색, 중요표시 등을 할 수 있다.
+      - 현재 메모 에디터는 draftjs의 기본적인 기능만을 제공한다.
+      - PreView로 작성 중인 메모를 미리 볼 수 있고, Delete로 삭제할 수 있다.
+
+   
+   <div align="center">
+  <img src="https://user-images.githubusercontent.com/79836148/189373691-4ebd7e05-04be-479a-b933-ad469c603dfb.jpg" width="300px" height="200px"  title="memoEditorView" alt="memoEditorView"></img> 
+  <img src="https://user-images.githubusercontent.com/79836148/189373561-31bfe3f8-b994-4724-beb8-ea4e91edfa04.jpg" width="300px" height="200px"  title="memoEditing" alt="memoEditing"></img><img src="https://user-images.githubusercontent.com/79836148/189373909-fd7cbc53-3c3d-4114-a660-bb6ebbca6e15.jpg" width="300px" height="200px"  title="memoMajor" alt="memoMajor"></img> 
+  <br/>
+ 
+ 새 메모와 편집중인 메모 창 및 중요표시 모습
+ 
+   </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
