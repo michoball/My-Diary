@@ -27,6 +27,7 @@ function MemoEditSidebar({ onPreview, memoInfo, setMemoInfo }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [hideColor, setHideColor] = useState(true);
+
   const saveMemoHandler = () => {
     if (memoInfo.title.length === 0) {
       console.log(memoInfo);
