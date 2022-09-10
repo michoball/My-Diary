@@ -218,6 +218,15 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
   };
   ```
   
+          Promise then 구문을 찾아보면서 dispatch then 구문에 대해서 공식문서에 나와있는 글이 있다는 사실을 알았다.
+          공식문서에서도 dispatch Action처리시 thunk에서 response 값을 리턴하는 경우 dispatch then으로 값을 다룰 수 있다고 나와있어서 위의 해결이 맞음을 확인했다.
+          공식문서를 좀 더 살펴봐야겠다. ㅠㅠ   
+        
+ 
+ redux-toolkit의 공식문서 글 [Handling Thunk Results](https://redux-toolkit.js.org/api/createAsyncThunk#handling-thunk-results)
+          
+          
+          
   <br/>
   
    * TimeConvertor
