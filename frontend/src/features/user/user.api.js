@@ -32,9 +32,12 @@ const login = async (userData) => {
 };
 
 const oauthLogin = async () => {
-  const res = await axios.get(API_URL + "/oauth/success", {
-    // withCredentials: true,
-  });
+  const res = await axios.get(
+    API_URL + "/oauth/success"
+    // , {
+    //   withCredentials: true,
+    // }
+  );
   if (res.status === 200) {
     localStorage.setItem("user", JSON.stringify(res.data));
   }
