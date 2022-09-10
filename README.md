@@ -1,4 +1,3 @@
-# My_Diary
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/79836148/189145978-a153927f-8985-42de-ac4a-883fb2a7331a.png" width="350px" height="60px" title="mydiaryLogo" alt="mydiaryLogo"></img> <br/>
@@ -353,3 +352,7 @@ const protect = asyncHandler(async (req, res, next) => {
 
 ```
   
+# Todo 리스트 
+
+ - [x] DayPicker 기능 수정
+ - [ ] TypeScript로 변환
