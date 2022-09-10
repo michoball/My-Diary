@@ -15,6 +15,14 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
 클라이언트 단에서는 redux-toolkit을 사용 상태를 관리하고 서버와 통신할 수 있도록 하였고
 서버단에서는 nodejs와 express를 사용 유저 로그인과 caledndar, label, memo와 관련된 CRUD 기능을 만들어 MongoDB와 연결하여 데이터를 관리했습니다.
 
+
+## 목록
+
+[기술 스택](#기술스택)<br/>
+[app 기능의 특징](#웹-기능)<br/>
+[코드 이슈](#코드-이슈-및-트러블-슈팅)<br/>
+
+
 # 기술스택
 
 <div align="center">
@@ -50,6 +58,11 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
 
 
 # 웹 기능
+
+[Home](#home)<br/>
+[Login](#login)<br/>
+[Calendar](#calendar)<br/>
+[Memo](#memo)<br/>
 
 
 
@@ -90,11 +103,11 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
    
    
    <div align="center">
-  <img src="https://user-images.githubusercontent.com/79836148/189157492-b71aa852-ed52-4c3c-bffd-bd98293a8234.jpg" width="300px" height="200px" title="calendarPage" alt="calendarPage"></img> <img src="https://user-images.githubusercontent.com/79836148/189157587-a92d1929-cbcc-4235-bf3f-09410c5585e7.jpg" width="300px" height="200px" title="calendarWeek" alt="calendarWeek"></img> <img src="https://user-images.githubusercontent.com/79836148/189159417-203d7204-7de4-4098-a063-751506e7ecfc.jpg" width="300px" height="200px" title="caledarDnD" alt="caledarDnD"></img> 
+      <img src="https://user-images.githubusercontent.com/79836148/189157492-b71aa852-ed52-4c3c-bffd-bd98293a8234.jpg" width="300px" height="200px" title="calendarPage" alt="calendarPage"></img> <img src="https://user-images.githubusercontent.com/79836148/189157587-a92d1929-cbcc-4235-bf3f-09410c5585e7.jpg" width="300px" height="200px" title="calendarWeek" alt="calendarWeek"></img> <img src="https://user-images.githubusercontent.com/79836148/189159417-203d7204-7de4-4098-a063-751506e7ecfc.jpg" width="300px" height="200px" title="caledarDnD" alt="caledarDnD"></img> 
   <br/>
 
 
-</div>
+  </div>
    
    * Event Create & Edit
     
@@ -163,7 +176,7 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
    
    <div align="center">
   <img src="https://user-images.githubusercontent.com/79836148/189373691-4ebd7e05-04be-479a-b933-ad469c603dfb.jpg" width="300px" height="200px"  title="memoEditorView" alt="memoEditorView"></img> 
-  <img src="https://user-images.githubusercontent.com/79836148/189373561-31bfe3f8-b994-4724-beb8-ea4e91edfa04.jpg" width="300px" height="200px"  title="memoEditing" alt="memoEditing"></img><img src="https://user-images.githubusercontent.com/79836148/189373909-fd7cbc53-3c3d-4114-a660-bb6ebbca6e15.jpg" width="300px" height="200px"  title="memoMajor" alt="memoMajor"></img> 
+  <img src="https://user-images.githubusercontent.com/79836148/189373561-31bfe3f8-b994-4724-beb8-ea4e91edfa04.jpg" width="300px" height="200px"  title="memoEditing" alt="memoEditing"></img>  <img src="https://user-images.githubusercontent.com/79836148/189373909-fd7cbc53-3c3d-4114-a660-bb6ebbca6e15.jpg" width="300px" height="200px"  title="memoMajor" alt="memoMajor"></img> 
   <br/>
  
  새 메모와 편집중인 메모 창 및 중요표시 모습
@@ -173,7 +186,12 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
   <br/>
  
  
- # 코드 이슈 (트러블, 특이사항)
+ # 코드 이슈 및 트러블 슈팅
+ 
+[Front-end](#front-end)<br/>
+[Back-end](#back-end)<br/>
+
+
  
  ## Front-end
 
@@ -289,7 +307,49 @@ export const EndDayConvertor = (end) => {
 
    * 로그인 인증과 oAuth
   
-      >  
-  
+      > 이전 프로젝트에서 Firebase를 이용해서 유저 Authentication을 구현한 적이 있었는데, 이때 firebase에서 지원하는 google OAuth를 사용한 적이 있었다.<br/>
+      > 이번 프로젝트에서 kakao와 naver도 지원하는 login를 구현하고 싶었다. <br/>
+      > nodejs에 인증시스템 구현을 위한 미들웨어 Passportjs를 이용하였다. <br/>
+      > Passport 문서를 참고해 session으로 oAuth를 구현하게 되었다. <br/>
+      > 본 프로젝트에서는 이미 jwt를 이용해 유저 인증과 route를 보호하는 미들웨어를 구현한터라<br/>
+      > oAuth 유저들의 route를 보호하는 부분이 적용되지 않는 문제가 있었다.<br/>
+      > 백엔드에 대한 공부가 아직 부족한탓에 이번에는 session을 oAuth유저 인증에만 사용하고<br/>
+      > 이후 jwt을 같이 넣어주어서 미들웨어를 사용한 방식으로 해결했다. 나중에 좀 더 공부를 한 후에 수정하도록 해야겠다.
   <br/>
+      
+```js
+
+// jwt토큰을 이용한 유저 인증 middleware
+// 유저가 생성될때 각 유저에게 고유의 토큰을 발급해줘서
+// 서버에서 calendar, label, memo 통신시 유저의 data만을 가져오고
+// 다른 유저의 data를 쓰지못하게 보호해주는 역할을 한다.
+const protect = asyncHandler(async (req, res, next) => {
+  let token;
+
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    try {
+      // 헤더에서 토큰 가져오기
+      token = req.headers.authorization.split(" ")[1];
+      // 토큰 검증
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      // 토큰으로부터 유저 가져오기
+      req.user = await User.findById(decoded.id).select("-password");
+      next();
+    } catch (error) {
+      console.log(error);
+      res.status(401);
+      throw new Error("Not authorized");
+    }
+  }
+
+  if (!token) {
+    res.status(401);
+    throw new Error("Not authorized");
+  }
+});
+
+```
   
