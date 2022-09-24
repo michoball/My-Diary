@@ -87,9 +87,7 @@ const LabelAddForm = ({ onConfirm }) => {
       ? { ...newLabel, ...abvancedLabel }
       : newLabel;
 
-    dispatch(addLabel(labelLists, finalLabel)).then(() =>
-      dispatch(getLabels())
-    );
+    dispatch(addLabel(labelLists, finalLabel));
 
     defaultSetting();
   };

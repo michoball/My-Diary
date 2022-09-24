@@ -58,6 +58,7 @@ function BasicInput() {
       setBasicEventData((prev) => {
         return {
           ...prev,
+          title: selectedLabel.labelTitle,
           labelTitle: selectedLabel.labelTitle,
           allDay: selectedLabel.allDay,
           labelId: selectedLabel._id,

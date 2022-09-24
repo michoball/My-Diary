@@ -26,7 +26,7 @@ const CategoryList = ({ lists }) => {
 
   const deleteLabelHandler = () => {
     if (window.confirm("정말 제거하시겠습니까? ")) {
-      dispatch(deleteLabel(lists._id)).then(() => dispatch(getLabels()));
+      dispatch(deleteLabel(lists._id));
     }
   };
 
