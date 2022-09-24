@@ -364,4 +364,6 @@ const protect = asyncHandler(async (req, res, next) => {
 # Todo 리스트 
 
  - [x] DayPicker 기능 수정
+ - [ ] drag & drop 기능 이슈 - 정기일정 이동시 요일이 여러개일때 모든 요일에 일정 변동이 
  - [ ] TypeScript로 변환
+ 
