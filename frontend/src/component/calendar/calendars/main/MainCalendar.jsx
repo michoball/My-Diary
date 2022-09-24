@@ -57,8 +57,10 @@ function MyCalendar() {
   }, [isError, message]);
 
   useEffect(() => {
-    if (eventLists.length !== 0) {
+    if (eventLists.length > 0) {
       setEventList(eventLists);
+    } else {
+      return;
     }
   }, [eventLists]);
 
