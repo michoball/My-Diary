@@ -40,8 +40,9 @@ export const labelSlice = createSlice({
       .addCase(createLabel.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(createLabel.fulfilled, (state) => {
+      .addCase(createLabel.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.labelLists = state.labelLists.concat(action.payload);
       })
       .addCase(createLabel.rejected, (state, action) => {
         state.isLoading = false;
@@ -53,7 +54,6 @@ export const labelSlice = createSlice({
       })
       .addCase(getLabels.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.labelLists = action.payload;
       })
       .addCase(getLabels.rejected, (state, action) => {
@@ -67,7 +67,6 @@ export const labelSlice = createSlice({
       })
       .addCase(deleteLabel.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.labelLists = state.labelLists.filter(
           (label) => label._id !== action.payload
         );
