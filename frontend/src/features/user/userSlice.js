@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { register, login, logout, oauthLogin } from "./user.thunk";
 
 //Get user from localstorage
-const user = JSON.parse(localStorage.getItem("user"));
+const user = JSON.parse(sessionStorage.getItem("user"));
 
 const initialState = {
   user: user ? user : null,

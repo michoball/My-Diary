@@ -65,7 +65,7 @@ function LandingPage() {
   };
 
   useEffect(() => {
-    const currentUser = JSON.parse(localStorage.getItem("user"));
+    const currentUser = JSON.parse(sessionStorage.getItem("user"));
     if (currentUser) {
       navigate("/home");
     }
