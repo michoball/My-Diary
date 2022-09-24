@@ -18,7 +18,6 @@ export const userSlice = createSlice({
     userReset: (state) => {
       state.isLoading = false;
       state.isError = false;
-
       state.message = "";
     },
   },

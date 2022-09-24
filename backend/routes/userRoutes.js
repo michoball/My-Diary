@@ -12,8 +12,14 @@ const {
 const { protect, ensureAuth } = require("../middleware/authMiddleware");
 
 const redirectURL = {
-  success: "https://my-diary-myunghun.herokuapp.com/oauth/success",
-  failure: "https://my-diary-myunghun.herokuapp.com",
+  success:
+    process.env.NODE_ENV === "production"
+      ? "https://my-diary-myunghun.herokuapp.com/oauth/success"
+      : "http://localhost:3000/oauth/success",
+  failure:
+    process.env.NODE_ENV === "production"
+      ? "https://my-diary-myunghun.herokuapp.com"
+      : "http://localhost:3000",
 };
 
 // google Oauth login
