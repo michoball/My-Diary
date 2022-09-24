@@ -7,7 +7,7 @@ const register = async (userData) => {
   const response = await axios.post(API_URL, userData);
 
   if (response.data) {
-    localStorage.setItem("user", JSON.stringify(response.data));
+    sessionStorage.setItem("user", JSON.stringify(response.data));
   }
   return response.data;
 };
@@ -17,7 +17,7 @@ const logout = async () => {
     withCredentials: true,
   });
   if (res.status === 200) {
-    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
     localStorage.removeItem("Theme");
   }
 };
@@ -26,7 +26,7 @@ const login = async (userData) => {
   const response = await axios.post(API_URL + "/login", userData);
 
   if (response.data) {
-    localStorage.setItem("user", JSON.stringify(response.data));
+    sessionStorage.setItem("user", JSON.stringify(response.data));
   }
   return response.data;
 };
@@ -39,7 +39,7 @@ const oauthLogin = async () => {
     // }
   );
   if (res.status === 200) {
-    localStorage.setItem("user", JSON.stringify(res.data));
+    sessionStorage.setItem("user", JSON.stringify(res.data));
   }
   return res.data;
 };
