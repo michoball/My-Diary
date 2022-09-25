@@ -76,13 +76,13 @@ const SignInForm = () => {
     console.log(process.env.REACT_APP_MY_APP_URL);
     console.log(process.env.REACT_APP_NODE_ENV);
 
-    const oAuthUrl =
-      process.env.REACT_APP_NODE_ENV === "production"
-        ? process.env.REACT_APP_MY_APP_URL
-        : "http://localhost:5000";
+    // const oAuthUrl =
+    //   process.env.REACT_APP_NODE_ENV === "production"
+    //     ? process.env.REACT_APP_MY_APP_URL
+    //     : "http://localhost:5000";
 
     const newWindow = window.open(
-      `${oAuthUrl}/api/users/${service}`,
+      `https://my-diary-myunghun.herokuapp.com/api/users/${service}`,
       "_blank",
       "width=500, height=600"
     );
