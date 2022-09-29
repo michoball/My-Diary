@@ -24,7 +24,8 @@ const CategoryList = ({ lists }) => {
     setIsOpenModal(!isOpenModal);
   };
 
-  const deleteLabelHandler = () => {
+  const deleteLabelHandler = (e) => {
+    e.stopPropagation();
     if (window.confirm("정말 제거하시겠습니까? ")) {
       dispatch(deleteLabel(lists._id));
     }
@@ -49,11 +50,10 @@ const CategoryList = ({ lists }) => {
               </p>
             </ListInfoContainer>
           </ListItemContainer>
-          <ButtonContainer>
-            <DeleteBtn>
-              <Trash onClick={deleteLabelHandler} />
-            </DeleteBtn>
-          </ButtonContainer>
+
+          <DeleteBtn onClick={(e) => deleteLabelHandler(e)}>
+            <Trash />
+          </DeleteBtn>
         </ListWrapper>
       </ListContainer>
     </>

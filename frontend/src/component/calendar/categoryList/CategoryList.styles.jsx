@@ -60,11 +60,10 @@ export const ListColor = styled.div`
   }
 `;
 
-export const ButtonContainer = styled.div`
-  width: 30px;
-`;
-
 export const DeleteBtn = styled.button`
+  width: 30px;
+  display: flex;
+  align-items: center;
   border: none;
   background-color: transparent;
 
