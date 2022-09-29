@@ -96,7 +96,7 @@ export const LogInForm = styled.form`
     height: 20%;
 
     input {
-      font-size: 18px;
+      font-size: 16px;
       padding: 0 10px;
       width: 100%;
       height: 100%;

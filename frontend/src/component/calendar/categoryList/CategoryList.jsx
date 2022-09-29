@@ -9,7 +9,6 @@ import {
   ListColor,
   ListItemContainer,
   DeleteBtn,
-  ButtonContainer,
   ListInfoContainer,
   ListWrapper,
 } from "./CategoryList.styles";
@@ -24,7 +23,8 @@ const CategoryList = ({ lists }) => {
     setIsOpenModal(!isOpenModal);
   };
 
-  const deleteLabelHandler = () => {
+  const deleteLabelHandler = (e) => {
+    e.stopPropagation();
     if (window.confirm("정말 제거하시겠습니까? ")) {
       dispatch(deleteLabel(lists._id)).then(() => dispatch(getLabels()));
     }
@@ -35,9 +35,9 @@ const CategoryList = ({ lists }) => {
       {isOpenModal && (
         <EventInput onConfirm={() => setIsOpenModal(!isOpenModal)} />
       )}
-      <ListContainer>
+      <ListContainer onClick={openInputFormHandler}>
         <ListWrapper>
-          <ListItemContainer onClick={openInputFormHandler}>
+          <ListItemContainer>
             <ListColor>
               <BookmarkCheckFill color={lists.color} />
             </ListColor>
@@ -49,11 +49,10 @@ const CategoryList = ({ lists }) => {
               </p>
             </ListInfoContainer>
           </ListItemContainer>
-          <ButtonContainer>
-            <DeleteBtn>
-              <Trash onClick={deleteLabelHandler} />
-            </DeleteBtn>
-          </ButtonContainer>
+
+          <DeleteBtn onClick={(e) => deleteLabelHandler(e)}>
+            <Trash />
+          </DeleteBtn>
         </ListWrapper>
       </ListContainer>
     </>
