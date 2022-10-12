@@ -46,10 +46,20 @@ const calendarSwiperImg = [
 
 const memoSwiperImg = [memoPage, memoEditPage, memoPreview, memoEditing];
 
-const demoModeUser = {
-  email: "testEmail@gmail.com",
-  password: "asdfasdf",
-};
+const demoModeUser = [
+  {
+    email: "testEmail@gmail.com",
+    password: "asdfasdf",
+  },
+  {
+    email: "aaa@aaa.com",
+    password: "asdfasdf",
+  },
+  {
+    email: "bbb@bbb.com",
+    password: "asdfasdf",
+  },
+];
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -82,7 +92,9 @@ function LandingPage() {
   }, []);
 
   const demoModeHandler = () => {
-    dispatch(login(demoModeUser));
+    const ranNum = Math.floor(Math.random() * 3);
+    const selectedDemoUser = demoModeUser[ranNum];
+    dispatch(login(selectedDemoUser));
     navigate("/home");
   };
 
