@@ -20,7 +20,7 @@ function MemoView() {
   const orderedMemoLists = useSelector(selectRecentOrderMemoLists);
   const memoIsLoading = useSelector(selectMemoLoading);
   const [searchWord, setSearchWord] = useState("");
-  const [memoCards, setMemoCards] = useState(orderedMemoLists);
+  const [memoCards, setMemoCards] = useState(null);
 
   const serachHandler = (e) => {
     setSearchWord(e.target.value);
@@ -31,7 +31,7 @@ function MemoView() {
       const titleTerm = orderedMemoLists.filter((memo) =>
         memo.title.includes(searchWord)
       );
-      if (titleTerm) {
+      if (titleTerm.length !== 0) {
         setMemoCards(titleTerm);
       }
     }, 500);
@@ -68,9 +68,24 @@ function MemoView() {
               <Loading />
             ) : (
               <MemosWrapper>
-                {memoCards.map((memoList) => {
-                  return <MemoCard key={memoList._id} memoInfo={memoList} />;
-                })}
+                {memoCards ? (
+                  memoCards?.map((memoList) => {
+                    return <MemoCard key={memoList._id} memoInfo={memoList} />;
+                  })
+                ) : (
+                  <div
+                    style={{
+                      display: "flex",
+                      fontSize: "20px",
+                      width: "300px",
+                      height: "100px",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    메모가 아직 없습니다....
+                  </div>
+                )}
               </MemosWrapper>
             )}
           </MemosContainer>

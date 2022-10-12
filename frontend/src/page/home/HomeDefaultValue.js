@@ -62,8 +62,11 @@ export const HOME_DEFAULT_MEMO = [
 const yearMonthMaker = () => {
   const nowYear = new Date().getFullYear();
   const nowMonth = new Date().getMonth() + 1;
-
-  return `${nowYear}-0${nowMonth}`;
+  let returnYearNMon = `${nowYear}-0${nowMonth}`;
+  if (nowMonth >= 10) {
+    returnYearNMon = `${nowYear}-${nowMonth}`;
+  }
+  return returnYearNMon;
 };
 
 export const HOME_DEFAULT_EVENT = [
@@ -93,8 +96,8 @@ export const HOME_DEFAULT_EVENT = [
     labelId: "",
     id: "133584fasefa-arnla",
     title: "",
-    start: yearMonthMaker() + "-26T00:00",
-    end: yearMonthMaker() + "-27T24:00",
+    start: yearMonthMaker() + "-24T00:00",
+    end: yearMonthMaker() + "-25T24:00",
     color: "#ff9f89",
     allDay: true,
     overlap: false,
@@ -120,7 +123,7 @@ export const HOME_DEFAULT_EVENT = [
     labelId: "blueEvents",
     color: "#ff9f89",
 
-    daysOfWeek: ["4"],
+    daysOfWeek: ["5"],
     startTime: "10:45:00",
     endTime: "12:45:00",
     startRecur: yearMonthMaker() + "-01",
@@ -128,7 +131,7 @@ export const HOME_DEFAULT_EVENT = [
   },
 ];
 
-export const DEFAULT_Label = [
+export const HOME_DEFAULT_LABEL = [
   {
     _id: "1215gq4raf",
     labelTitle: "기본일정",

@@ -10,8 +10,7 @@ function Memo() {
 
   useEffect(() => {
     dispatch(getMemos());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   return (
     <MemoContainer>

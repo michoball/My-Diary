@@ -2,14 +2,13 @@ import { useState } from "react";
 import { BookmarkCheckFill } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
 import { selectLabel } from "../../../features/label/labelSlice";
-import { deleteLabel, getLabels } from "../../../features/label/label.thunk";
+import { deleteLabel } from "../../../features/label/label.thunk";
 import EventInput from "../eventInput/EventInput";
 import {
   ListContainer,
   ListColor,
   ListItemContainer,
   DeleteBtn,
-  ButtonContainer,
   ListInfoContainer,
   ListWrapper,
 } from "./CategoryList.styles";

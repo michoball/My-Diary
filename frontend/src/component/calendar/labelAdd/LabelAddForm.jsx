@@ -23,7 +23,6 @@ import {
   selectLabelLists,
   selectLabelsReducer,
 } from "../../../features/label/label.select";
-import { getLabels } from "../../../features/label/label.thunk";
 
 const defaultLabel = {
   labelTitle: "",
