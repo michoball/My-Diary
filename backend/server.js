@@ -27,6 +27,7 @@ app.use(
     secret: "mydiary kang",
     resave: false,
     saveUninitialized: false,
+    // 내 몽고DB에 세션 저장 --> JWT를 쓸거라 일단 안씀
     // store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
   })
 );
@@ -34,7 +35,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// 데이터 통신 body로 json을 쓰겠다는 미들웨어
 app.use(express.json());
+//urlencoded 를 사용하기 위해서 쓴 거
 app.use(express.urlencoded({ extended: false }));
 
 //Routes
