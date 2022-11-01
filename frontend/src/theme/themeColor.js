@@ -21,7 +21,7 @@ const light = {
   },
 };
 
-// 아직
+// 다크모드 색
 const dark = {
   bg: {
     main: "#2D3940",
