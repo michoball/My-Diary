@@ -27,6 +27,7 @@ function MemoView() {
   };
 
   useEffect(() => {
+    setMemoCards(orderedMemoLists);
     const searchTerm = setTimeout(() => {
       const titleTerm = orderedMemoLists.filter((memo) =>
         memo.title.includes(searchWord)
@@ -68,8 +69,8 @@ function MemoView() {
               <Loading />
             ) : (
               <MemosWrapper>
-                {memoCards ? (
-                  memoCards?.map((memoList) => {
+                {memoCards && memoCards.length > 0 ? (
+                  memoCards.map((memoList) => {
                     return <MemoCard key={memoList._id} memoInfo={memoList} />;
                   })
                 ) : (
