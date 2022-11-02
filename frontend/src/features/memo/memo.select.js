@@ -19,7 +19,10 @@ export const selectRecentOrderMemoLists = createSelector(
   [selectMemoLists],
   (memoListsSlice) => {
     const copyList = [...memoListsSlice];
-    return copyList.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    return copyList.sort(
+      (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+    );
   }
 );
 
