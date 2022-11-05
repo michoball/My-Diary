@@ -39,13 +39,14 @@ const banEvent = {
 };
 
 function MyCalendar() {
+  const eventLists = useSelector(selectCalendarEvents);
+  const calendarIsLoading = useSelector(selectCalendarisLoading);
+
   const [isEditFrom, setIsEditFrom] = useState(false);
   const [selectable, setSelectable] = useState(false);
   const [isInputFrom, setIsInputFrom] = useState(false);
   const [eventList, setEventList] = useState(null);
 
-  const eventLists = useSelector(selectCalendarEvents);
-  const calendarIsLoading = useSelector(selectCalendarisLoading);
   const { isError, message } = useSelector(selectCalendarReducer);
   const dispatch = useDispatch();
 

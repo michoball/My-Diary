@@ -7,7 +7,6 @@ export const createMemos = createAsyncThunk(
   async (memoData, thunkAPI) => {
     try {
       const token = thunkAPI.getState().user.user.token;
-      console.log(thunkAPI.getState());
       return await memoApi.createMemos(memoData, token);
     } catch (error) {
       const message =
@@ -53,7 +52,7 @@ export const getMemos = createAsyncThunk(
 
 //메모 삭제하기
 export const deleteMemo = createAsyncThunk(
-  "memos/delte",
+  "memos/delete",
   async (memoId, thunkAPI) => {
     try {
       const token = thunkAPI.getState().user.user.token;

@@ -11,5 +11,5 @@ export const store = configureStore({
     memo: memoReducer,
     user: userReducer,
   },
-  // devTools: process.env.REACT_APP_NODE_ENV !== "production",
+  devTools: process.env.REACT_APP_NODE_ENV !== "production",
 });

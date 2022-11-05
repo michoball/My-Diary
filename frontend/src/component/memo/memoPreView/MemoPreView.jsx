@@ -4,7 +4,7 @@ import { selectMemo } from "../../../features/memo/memo.select";
 import { BtnContainer } from "./MemoPreView.styles";
 import { useNavigate } from "react-router-dom";
 import { clearSelectMemo } from "../../../features/memo/memoSlice";
-import { deleteMemo } from "../../../features/memo/memo.thunk";
+import { deleteMemo, getMemos } from "../../../features/memo/memo.thunk";
 import { PencilSquare, Trash3, X } from "react-bootstrap-icons";
 import Modal from "../../modal/Modal";
 import Button from "../../../UI/button/button";
@@ -25,7 +25,10 @@ function MemoPreView({ onConfirm }) {
 
   const deleteHandler = () => {
     if (window.confirm("메모를 지우시겠습니까?")) {
-      dispatch(deleteMemo(selectedMemo._id));
+      dispatch(deleteMemo(selectedMemo._id)).then(() => {
+        dispatch(getMemos());
+        dispatch(clearSelectMemo());
+      });
       onConfirm();
     }
   };

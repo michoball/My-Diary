@@ -76,7 +76,7 @@ const deletelabel = asyncHandler(async (req, res) => {
   }
   await label.remove();
 
-  res.status(200).json({ success: true });
+  res.status(200).json({ labelId: label._id });
 });
 
 //@desc  라벨 수정  --- > 필요시 사용

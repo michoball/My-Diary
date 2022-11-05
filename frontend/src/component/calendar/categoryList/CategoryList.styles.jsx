@@ -71,6 +71,8 @@ export const ListColor = styled.div`
 
 export const DeleteBtn = styled.button`
   width: 30px;
+  display: flex;
+  align-items: center;
   border: none;
   display: flex;
   background-color: transparent;

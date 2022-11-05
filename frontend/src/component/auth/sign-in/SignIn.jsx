@@ -73,6 +73,13 @@ const SignInForm = () => {
 
   const oAuthLoginHandler = async (service) => {
     let timer = null;
+    // console.log(process.env.REACT_APP_MY_APP_URL);
+    // console.log(process.env.REACT_APP_NODE_ENV);
+
+    // const oAuthUrl =
+    //   process.env.REACT_APP_NODE_ENV === "production"
+    //     ? process.env.REACT_APP_MY_APP_URL
+    //     : "http://localhost:5000";
 
     const newWindow = window.open(
       `http://localhost:5000/api/users/${service}`,

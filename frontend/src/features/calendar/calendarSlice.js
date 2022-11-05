@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import {
   createCalendar,
   deleteCalendar,
@@ -43,7 +44,6 @@ export const calendarSlice = createSlice({
       })
       .addCase(createCalendar.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.eventList = state.eventList.concat(action.payload);
       })
       .addCase(createCalendar.rejected, (state, action) => {
@@ -56,7 +56,6 @@ export const calendarSlice = createSlice({
       })
       .addCase(getCalendars.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.eventList = action.payload;
       })
       .addCase(getCalendars.rejected, (state, action) => {

@@ -49,7 +49,6 @@ export const MemoSlice = createSlice({
       })
       .addCase(getMemos.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.memoLists = action.payload;
       })
       .addCase(getMemos.rejected, (state, action) => {
@@ -62,7 +61,6 @@ export const MemoSlice = createSlice({
       })
       .addCase(deleteMemo.fulfilled, (state, action) => {
         state.isLoading = false;
-
         state.memoLists = state.memoLists.filter(
           (memo) => memo._id !== action.payload.id
         );

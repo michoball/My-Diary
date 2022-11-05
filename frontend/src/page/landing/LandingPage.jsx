@@ -11,25 +11,27 @@ import {
   FooterContainer,
 } from "./LandingPage.styles";
 import { ReactComponent as Mydiary } from "../../assets/Logo.svg";
-import calendarPage from "../../assets/jpg/calendarPage.jpg";
-import calendarDnD from "../../assets/jpg/calendarDnD.jpg";
-import calendarDaliy from "../../assets/jpg/calendarDaliy.jpg";
-import calendarRecurr from "../../assets/jpg/calendarRecurr.jpg";
-import memoPage from "../../assets/jpg/memoPage.jpg";
-import memoColor from "../../assets/jpg/memoColor.jpg";
-import memoColorBtn from "../../assets/jpg/memoColorBtn.jpg";
-import memoMajor from "../../assets/jpg/memoMajor.jpg";
-import memoSearch from "../../assets/jpg/memoSearch.jpg";
-import memoSearchBtn from "../../assets/jpg/memoSearchBtn.jpg";
-import memoEditing from "../../assets/jpg/memoEditing.jpg";
-import memoEditPreview from "../../assets/jpg/memoEditPreview.jpg";
-import calendarWeek from "../../assets/jpg/calendarWeek.jpg";
-import labelAdd from "../../assets/jpg/labelAdd.jpg";
-import homeImg from "../../assets/jpg/mainPage.jpg";
 
-import halidayImg from "../../assets/jpg/holidayImg.jpg";
-import memoEditPage from "../../assets/jpg/memoEditPage.jpg";
-import memoPreview from "../../assets/jpg/memoPreview.jpg";
+// webp
+import calendarPage from "../../assets/webp/calendarPage.webp";
+import calendarDnD from "../../assets/webp/calendarDnD.webp";
+import calendarDaliy from "../../assets/webp/calendarDaliy.webp";
+import calendarRecurr from "../../assets/webp/calendarRecurr.webp";
+import memoPage from "../../assets/webp/memoPage.webp";
+import memoColor from "../../assets/webp/memoColor.webp";
+import memoColorBtn from "../../assets/webp/memoColorBtn.webp";
+import memoMajor from "../../assets/webp/memoMajor.webp";
+import memoSearch from "../../assets/webp/memoSearch.webp";
+import memoSearchBtn from "../../assets/webp/memoSearchBtn.webp";
+import memoEditing from "../../assets/webp/memoEditing.webp";
+import memoEditPreview from "../../assets/webp/memoEditPreview.webp";
+import calendarWeek from "../../assets/webp/calendarWeek.webp";
+import labelAdd from "../../assets/webp/labelAdd.webp";
+import homeImg from "../../assets/webp/mainPage.webp";
+import holidayImg from "../../assets/webp/holidayImg.webp";
+import memoEditPage from "../../assets/webp/memoEditPage.webp";
+import memoPreview from "../../assets/webp/memoPreview.webp";
+
 import { Link, useNavigate } from "react-router-dom";
 import Button, { BUTTON_TYPE_CLASSES } from "../../UI/button/button";
 import { useRef, useState, useEffect } from "react";
@@ -46,10 +48,20 @@ const calendarSwiperImg = [
 
 const memoSwiperImg = [memoPage, memoEditPage, memoPreview, memoEditing];
 
-const demoModeUser = {
-  email: "testEmail@gmail.com",
-  password: "asdfasdf",
-};
+const demoModeUser = [
+  {
+    email: "testEmail@gmail.com",
+    password: "asdfasdf",
+  },
+  {
+    email: "aaa@aaa.com",
+    password: "asdfasdf",
+  },
+  {
+    email: "bbb@bbb.com",
+    password: "asdfasdf",
+  },
+];
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -82,7 +94,9 @@ function LandingPage() {
   }, []);
 
   const demoModeHandler = () => {
-    dispatch(login(demoModeUser));
+    const ranNum = Math.floor(Math.random() * 3);
+    const selectedDemoUser = demoModeUser[ranNum];
+    dispatch(login(selectedDemoUser));
     navigate("/home");
   };
 
@@ -125,7 +139,7 @@ function LandingPage() {
             </p>
           </ContentContainer>
           <ImgContainer className="calendar-display">
-            <Slider imgSorce={calendarSwiperImg} />
+            <Slider imgSource={calendarSwiperImg} />
           </ImgContainer>
         </SectionContainer>
 
@@ -157,7 +171,7 @@ function LandingPage() {
             </LabelDisplay>
             <LabelDisplay>
               <ImgContainer className="label-display">
-                <img src={halidayImg} alt="label-display" />
+                <img src={holidayImg} alt="label-display" />
               </ImgContainer>
               <ContentContainer className="label-content">
                 <p>
@@ -173,7 +187,7 @@ function LandingPage() {
 
         <SectionContainer className="section-memo">
           <ImgContainer className="memo-display">
-            <Slider imgSorce={memoSwiperImg} />
+            <Slider imgSource={memoSwiperImg} />
           </ImgContainer>
           <ContentContainer className="memo-content">
             <h3>메모</h3>

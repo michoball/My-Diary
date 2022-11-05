@@ -88,9 +88,24 @@ function MemoViewSidar({ onSearch, searchWord, onSelectColor, onMemoView }) {
             주요 메모
           </label>
           <MemoContainer>
-            {majorMemo.map((memo) => {
-              return <MajorMemo key={memo._id} memo={memo} />;
-            })}
+            {majorMemo.length !== 0 ? (
+              majorMemo.map((memo) => {
+                return <MajorMemo key={memo._id} memo={memo} />;
+              })
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  fontSize: "12px",
+                  height: "80px",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "red",
+                }}
+              >
+                중요메모가 없습니다.
+              </div>
+            )}
           </MemoContainer>
         </MajorMemoContainer>
       </SideContentWapper>

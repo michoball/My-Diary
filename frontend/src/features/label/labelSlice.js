@@ -68,7 +68,7 @@ export const labelSlice = createSlice({
       .addCase(deleteLabel.fulfilled, (state, action) => {
         state.isLoading = false;
         state.labelLists = state.labelLists.filter(
-          (label) => label._id !== action.payload
+          (label) => label._id !== action.payload.labelId
         );
       })
       .addCase(deleteLabel.rejected, (state, action) => {

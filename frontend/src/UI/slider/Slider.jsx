@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./slider.css";
 
-function Slider({ imgSorce }) {
+function Slider({ imgSource }) {
   return (
     <>
       <Swiper
@@ -20,7 +20,7 @@ function Slider({ imgSorce }) {
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
         className="mySwiper"
       >
-        {imgSorce.map((img, idx) => {
+        {imgSource.map((img, idx) => {
           return (
             <SwiperSlide key={idx}>
               <img src={img} alt="slider-img" />

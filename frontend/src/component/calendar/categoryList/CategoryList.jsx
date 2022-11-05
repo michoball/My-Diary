@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BookmarkCheckFill } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
 import { selectLabel } from "../../../features/label/labelSlice";
-import { deleteLabel, getLabels } from "../../../features/label/label.thunk";
+import { deleteLabel } from "../../../features/label/label.thunk";
 import EventInput from "../eventInput/EventInput";
 import {
   ListContainer,
@@ -26,7 +26,7 @@ const CategoryList = ({ lists }) => {
   const deleteLabelHandler = (e) => {
     e.stopPropagation();
     if (window.confirm("정말 제거하시겠습니까? ")) {
-      dispatch(deleteLabel(lists._id)).then(() => dispatch(getLabels()));
+      dispatch(deleteLabel(lists._id));
     }
   };
 
