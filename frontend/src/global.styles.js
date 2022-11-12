@@ -23,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
   margin: 0;
 }
 body {
-  font-family: 'SBAggroL','SBAggroB',sans-serif;
+  font-family: 'SBAggroL','SBAggroB','Roboto','Ubuntu', sans-serif;
   transition:  background-color 0.3s ease-in;
   background-color: ${(props) => props.theme.bg.main};
   color: ${(props) => props.theme.text.content};
