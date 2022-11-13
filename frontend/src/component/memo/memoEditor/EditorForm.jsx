@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
-import { EditorState, convertToRaw, ContentState } from "draft-js";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { EditorState, convertToRaw, ContentState } from "draft-js";
+
 import draftToHtml from "draftjs-to-html";
 import htmlToDraft from "html-to-draftjs";
 
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectMemo } from "../../../features/memo/memo.select";
-import { setSelectMemo } from "../../../features/memo/memoSlice";
 import { DayConvertor } from "../../../utill/timeConvertor";
 
 import Modal from "../../modal/Modal";
@@ -25,6 +25,7 @@ import {
 } from "./EditorForm.styles";
 import MemoEditSidebar from "../memoEditorSidebar/MemoEditSidebar";
 import { Star, StarFill } from "react-bootstrap-icons";
+import { getMemo } from "../../../features/memo/memo.thunk";
 
 const defaultMemoInfo = {
   _id: "",
@@ -38,7 +39,9 @@ const defaultMemoInfo = {
 const EditorForm = () => {
   // useState로 상태관리하기 초기값은 EditorState.createEmpty()
   // EditorState의 비어있는 ContentState 기본 구성으로 새 개체를 반환 => 이렇게 안하면 상태 값을 나중에 변경할 수 없음.
-  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty()
+  );
   const [memoInfo, setMemoInfo] = useState(defaultMemoInfo);
 
   const [showPreview, setShowPreview] = useState(false);
@@ -50,7 +53,7 @@ const EditorForm = () => {
 
   useEffect(() => {
     if (params.editmemoId) {
-      dispatch(setSelectMemo(params.editmemoId));
+      dispatch(getMemo(params.editmemoId));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -62,21 +65,19 @@ const EditorForm = () => {
         return { ...prev, ...selectedMemo };
       });
       const blocksFromHtml = htmlToDraft(selectedMemo.memo);
-      if (blocksFromHtml) {
-        const { contentBlocks, entityMap } = blocksFromHtml;
-        const contentState = ContentState.createFromBlockArray(
-          contentBlocks,
-          entityMap
-        );
-        // editor 에 넣기
-        const editorState = EditorState.createWithContent(contentState);
-        setEditorState(editorState);
-      }
+      const { contentBlocks, entityMap } = blocksFromHtml;
+      const contentState = ContentState.createFromBlockArray(
+        contentBlocks,
+        entityMap
+      );
+      // editor 에 넣기
+      const editorState = EditorState.createWithContent(contentState);
+      setEditorState(editorState);
     }
   }, [selectedMemo]);
 
   const memoInfoChangeHandler = (e) => {
-    //제목 input창 길이조절
+    // //제목 input창 길이조절
     if (e.target.name === "title" && e.target.value.length >= 15) {
       e.target.style.width = ` ${150 + e.target.value.length * 5}px`;
     } else if (e.target.name === "title" && e.target.value.length < 15) {
@@ -84,7 +85,7 @@ const EditorForm = () => {
     }
     // title state 변경
     setMemoInfo((prev) => {
-      return { ...prev, [e.target.name]: e.target.value };
+      return { ...prev, title: e.target.value };
     });
   };
 
@@ -140,6 +141,11 @@ const EditorForm = () => {
 
           <MyEditor bgcolors={color}>
             <Editor
+              // 초기값 설정
+              defaultEditorState={editorState}
+              editorState={editorState}
+              // 에디터의 값이 변경될 때마다 onEditorStateChange 호출
+              onEditorStateChange={onEditorStateChange}
               // 에디터와 툴바 모두에 적용되는 클래스
               wrapperClassName="wrapper-class"
               // 에디터 주변에 적용된 클래스
@@ -159,10 +165,6 @@ const EditorForm = () => {
               localization={{
                 locale: "ko",
               }}
-              // 초기값 설정
-              editorState={editorState}
-              // 에디터의 값이 변경될 때마다 onEditorStateChange 호출
-              onEditorStateChange={onEditorStateChange}
             />
           </MyEditor>
         </EditorContainer>
