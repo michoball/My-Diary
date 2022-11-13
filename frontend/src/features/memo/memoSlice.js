@@ -1,12 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createMemos, deleteMemo, getMemos, updateMemo } from "./memo.thunk";
+import {
+  createMemos,
+  deleteMemo,
+  getMemos,
+  updateMemo,
+  getMemo,
+} from "./memo.thunk";
 
 const initialState = {
   memoLists: [],
   selectedMemo: null,
   isLoading: false,
   isError: false,
-
   message: "",
 };
 
@@ -52,6 +57,18 @@ export const MemoSlice = createSlice({
         state.memoLists = action.payload;
       })
       .addCase(getMemos.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+      .addCase(getMemo.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getMemo.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.selectedMemo = action.payload;
+      })
+      .addCase(getMemo.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;

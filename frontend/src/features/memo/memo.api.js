@@ -13,6 +13,19 @@ const getMemos = async (token) => {
 
   return response.data;
 };
+
+//유저 메모 하나 가져오기
+const getMemo = async (memoId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const response = await axios.get(API_URL + memoId, config);
+
+  return response.data;
+};
+
 // 유저 메모 지우기
 const deleteMemo = async (memoId, token) => {
   const config = {
@@ -52,6 +65,7 @@ const updateMemo = async (memoId, memoData, token) => {
 
 const memoApi = {
   getMemos,
+  getMemo,
   deleteMemo,
   createMemos,
   updateMemo,

@@ -50,6 +50,35 @@ export const getMemos = createAsyncThunk(
   }
 );
 
+//메모 하나 가져오기
+export const getMemo = createAsyncThunk(
+  "memos/getMemo",
+  async (memoId, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().user.user.token;
+      return await memoApi.getMemo(memoId, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      return thunkAPI.rejectWithValue(message);
+    }
+  },
+  {
+    condition: (_, { getState, extra }) => {
+      const { memo } = getState();
+      const fetchError = memo.isError;
+      if (fetchError) {
+        return false;
+      }
+    },
+  }
+);
+
 //메모 삭제하기
 export const deleteMemo = createAsyncThunk(
   "memos/delete",
