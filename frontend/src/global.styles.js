@@ -9,14 +9,14 @@ export const GlobalStyle = createGlobalStyle`
     src:  local("SBAggroB"), url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-    font-display: swap; 
+    font-display: fallback; 
 }
 @font-face {
     font-family: 'SBAggroL';
     src: local("SBAggroL"), url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
+    font-display: fallback;
 }
 * {
   box-sizing: border-box;
