@@ -2,7 +2,7 @@
 <div align="center">
   <img src="https://user-images.githubusercontent.com/79836148/189145978-a153927f-8985-42de-ac4a-883fb2a7331a.png" width="350px" height="60px" title="mydiaryLogo" alt="mydiaryLogo"></img> <br/>
   
-   [Go to the App](http://my-diary-myunghun.herokuapp.com)
+   [Go to the App](https://my-diary-myunghun.herokuapp.com)
   
 </div>
 
