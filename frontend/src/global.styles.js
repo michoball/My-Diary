@@ -38,9 +38,11 @@ h1, h2{
   color: ${(props) => props.theme.text.head};
 }
 button{
+  transition: all 0.3s ease-in;
   font-family: 'SBAggroL',
     sans-serif;
 }
+
 a{
   text-decoration: none;
   color: ${(props) => props.theme.text.content};

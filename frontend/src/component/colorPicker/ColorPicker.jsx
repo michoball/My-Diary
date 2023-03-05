@@ -22,6 +22,7 @@ function ColorPicker({
 }) {
   const [colorTable, setColorTable] = useState(COLOR_TYPE_TABLE);
   const [pickedColor, setPickedColor] = useState(colorSelected);
+
   useEffect(() => {
     if (colorSelected) {
       setPickedColor(colorSelected);

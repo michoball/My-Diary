@@ -33,6 +33,11 @@ export const ListItemContainer = styled.div`
   font-weight: bold;
   width: 100%;
   letter-spacing: 1px;
+
+  span {
+    transition: all 0.3s ease-in;
+  }
+
   @media screen and (max-width: 767px) {
     font-size: 14px;
   }
@@ -44,6 +49,10 @@ export const ListInfoContainer = styled.div`
 
   transform: translateY(50%);
   font-size: 10px;
+  p {
+    transition: all 0.3s ease-in;
+  }
+
   @media screen and (max-width: 767px) {
     right: 5px;
   }
@@ -65,8 +74,9 @@ export const DeleteBtn = styled.button`
   display: flex;
   align-items: center;
   border: none;
+  display: flex;
   background-color: transparent;
-
+  align-items: center;
   cursor: pointer;
 
   :active {

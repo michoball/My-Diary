@@ -35,9 +35,9 @@ const CategoryList = ({ lists }) => {
       {isOpenModal && (
         <EventInput onConfirm={() => setIsOpenModal(!isOpenModal)} />
       )}
-      <ListContainer>
+      <ListContainer onClick={openInputFormHandler}>
         <ListWrapper>
-          <ListItemContainer onClick={openInputFormHandler}>
+          <ListItemContainer>
             <ListColor>
               <BookmarkCheckFill color={lists.color} />
             </ListColor>
