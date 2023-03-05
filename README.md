@@ -2,8 +2,6 @@
 <div align="center">
   <img src="https://user-images.githubusercontent.com/79836148/189145978-a153927f-8985-42de-ac4a-883fb2a7331a.png" width="350px" height="60px" title="mydiaryLogo" alt="mydiaryLogo"></img> <br/>
   
-   [Go to the App](https://my-diary-myunghun.herokuapp.com)
-  
 </div>
 
 # 소개
@@ -377,6 +375,5 @@ const protect = asyncHandler(async (req, res, next) => {
 # Todo 리스트 
 
  - [x] DayPicker 기능 수정
- - [ ] drag & drop 기능 이슈 - 정기일정 이동시 요일이 여러개일때 모든 요일에 일정 변동이 
- - [ ] TypeScript로 변환
+ - [ ] drag & drop 기능 이슈 - 정기일정 이동시 요일이 여러개일때 모든 요일에 일정 변동
  
