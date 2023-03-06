@@ -2,8 +2,6 @@
 <div align="center">
   <img src="https://user-images.githubusercontent.com/79836148/189145978-a153927f-8985-42de-ac4a-883fb2a7331a.png" width="350px" height="60px" title="mydiaryLogo" alt="mydiaryLogo"></img> <br/>
   
-   [Go to the App](https://my-diary-myunghun.herokuapp.com)
-  
 </div>
 
 # 소개
@@ -14,6 +12,19 @@ Memo 장에서 필요한 내용을 필기하고 중요한 내용은 중요표시
 클라이언트 단에서는 redux-toolkit을 사용 상태를 관리하고 서버와 통신할 수 있도록 하였고
 서버단에서는 nodejs와 express를 사용 유저 로그인과 caledndar, label, memo와 관련된 CRUD 기능을 만들어 MongoDB와 연결하여 데이터를 관리했습니다.
 
+## 실행 방법
+
+```sh
+git clone // this repository
+cd this file location
+// you have to install both dependencies in backend and frontend file
+npm install
+cd frontend
+npm install
+// and go to root folder
+cd ..
+npm run dev  // this command will execute both node server and frontend react file
+```
 
 ## 목록
 
@@ -364,6 +375,5 @@ const protect = asyncHandler(async (req, res, next) => {
 # Todo 리스트 
 
  - [x] DayPicker 기능 수정
- - [ ] drag & drop 기능 이슈 - 정기일정 이동시 요일이 여러개일때 모든 요일에 일정 변동이 
- - [ ] TypeScript로 변환
+ - [ ] drag & drop 기능 이슈 - 정기일정 이동시 요일이 여러개일때 모든 요일에 일정 변동
  
