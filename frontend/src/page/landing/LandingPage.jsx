@@ -38,7 +38,6 @@ import { useRef, useState, useEffect } from "react";
 import Slider from "../../UI/slider/Slider";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/user/user.thunk";
-import axios from "axios";
 
 const calendarSwiperImg = [
   calendarPage,
@@ -102,6 +101,31 @@ function LandingPage() {
     navigate("/home");
   };
 
+  const shareHandler = async () => {
+    const url = window.location.href;
+
+    if (window.navigator.share) {
+      try {
+        await window.navigator.share({
+          title: "공유기능 테스트",
+          url,
+          text: "공유기능이 잘되는지 테스트 ",
+        });
+      } catch (error) {
+        console.error("공유에 실패했습니다. :", error);
+      }
+    } else {
+      window.navigator.clipboard.writeText(url).then(
+        () => {
+          alert("copyLink_success");
+        },
+        (error) => {
+          alert(`'copyLink_falied' : ${error}`);
+        }
+      );
+    }
+  };
+
   return (
     <PageContainer>
       <LandNavBarContainer className={isScrolling ? "active" : ""}>
@@ -109,6 +133,9 @@ function LandingPage() {
         <LinkContainer>
           <button className="demo" onClick={demoModeHandler}>
             데모모드
+          </button>
+          <button className="share" onClick={shareHandler}>
+            공유하기
           </button>
           <Link to="/login">회원가입</Link>
           <Link to="/home" className="start">
