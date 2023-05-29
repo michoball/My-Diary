@@ -38,6 +38,7 @@ import { useRef, useState, useEffect } from "react";
 import Slider from "../../UI/slider/Slider";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/user/user.thunk";
+import axios from "axios";
 
 const calendarSwiperImg = [
   calendarPage,
@@ -83,6 +84,7 @@ function LandingPage() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   useEffect(() => {
     function watchScroll() {
       window.addEventListener("scroll", startNav);
@@ -93,7 +95,7 @@ function LandingPage() {
     };
   }, []);
 
-  const demoModeHandler = () => {
+  const demoModeHandler = async () => {
     const ranNum = Math.floor(Math.random() * 3);
     const selectedDemoUser = demoModeUser[ranNum];
     dispatch(login(selectedDemoUser));

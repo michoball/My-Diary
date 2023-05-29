@@ -49,6 +49,9 @@ app.use("/api/calendars", require("./routes/calendarRoutes"));
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Welcome to the diary app" });
 });
+const client_id = "O8Ug2dgQNcAFBIrdN9zZ";
+const client_secret = "14bFS5eGBn";
+const query = "번역할 문장을 입력하세요.";
 
 //Serve Frontend
 if (process.env.NODE_ENV === "production") {
