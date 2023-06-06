@@ -109,7 +109,6 @@ function LandingPage() {
           <button className="demo" onClick={demoModeHandler}>
             데모모드
           </button>
-          <button className="share">공유하기</button>
           <Link to="/login">회원가입</Link>
           <Link to="/home" className="start">
             <Button buttonType={BUTTON_TYPE_CLASSES.base}>시작하기</Button>
